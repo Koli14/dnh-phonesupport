@@ -17,6 +17,8 @@
         }
     ],
     "require": {
+        "twilio/sdk": "^5.34",
+        "google/apiclient": "^2.0"
     },
     "require-dev": {
         "inpsyde/php-coding-standards": "@stable"
