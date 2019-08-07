@@ -1,0 +1,36 @@
+{
+    "name": "digital-nomad-hungary/dnh-phonesupport",
+    "type": "wordpress-plugin",
+    "description": "Connecting callers with the PhoneSupport",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Inpsyde GmbH",
+            "homepage": "https://inpsyde.com/",
+            "email": "hello@inpsyde.com",
+            "role": "Company"
+        },
+        {
+            "name": "Kolos Karácsony",
+            "email": "karacsony.kolos@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "inpsyde/php-coding-standards": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "DnhPhoneSupport\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "ci": [
+            "vendor/bin/phpcs"
+        ]
+    }
+}
