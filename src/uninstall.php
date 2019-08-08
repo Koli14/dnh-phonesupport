@@ -22,7 +22,7 @@
  * @link       https://digitalnomadhungary.com
  * @since      1.0.0
  *
- * @package    Dnh_Phonesupport
+ * @package    DnhPhonesupport
  */
 
 // If uninstall not called from WordPress, then exit.

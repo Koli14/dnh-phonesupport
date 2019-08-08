@@ -38,22 +38,22 @@ define('DNH_PHONESUPPORT_VERSION', '1.0.2');
  * The code that runs during plugin activation.
  * This action is documented in src/includes/class-dnh-phonesupport-activator.php
  */
-function Activate_Dnh_phonesupport()
+function activateDnhPhonesupport()
 {
-    DNH\Dnh_Phonesupport_Activator::activate();
+    DNH\DnhPhonesupportActivator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in src/includes/class-dnh-phonesupport-deactivator.php
  */
-function Deactivate_Dnh_phonesupport()
+function deactivateDnhPhonesupport()
 {
-    DNH\Dnh_Phonesupport_Deactivator::deactivate();
+    DNH\DnhPhonesupportDeactivator::deactivate();
 }
 
-\register_activation_hook(__FILE__, 'Activate_Dnh_phonesupport');
-\register_deactivation_hook(__FILE__, 'Deactivate_Dnh_phonesupport');
+\register_activation_hook(__FILE__, 'activateDnhPhonesupport');
+\register_deactivation_hook(__FILE__, 'deactivateDnhPhonesupport');
 
 
 /**
@@ -65,9 +65,9 @@ function Deactivate_Dnh_phonesupport()
  *
  * @since 1.0.0
  */
-function Run_Dnh_phonesupport()
+function runDnhPhonesupport()
 {
-    $plugin = new DNH\Dnh_Phonesupport();
+    $plugin = new DNH\DnhPhonesupport();
     $plugin->run();
 }
-Run_Dnh_phonesupport();
+runDnhPhonesupport();

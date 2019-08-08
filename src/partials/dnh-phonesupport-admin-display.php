@@ -8,8 +8,8 @@
  * @link       https://digitalnomadhungary.com
  * @since      1.0.0
  *
- * @package    Dnh_Phonesupport
- * @subpackage Dnh_Phonesupport/admin/partials
+ * @package    DnhPhonesupport
+ * @subpackage DnhPhonesupport/admin/partials
  */
 ?>
 
