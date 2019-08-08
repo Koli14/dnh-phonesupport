@@ -146,7 +146,9 @@ class DnhPhonesupportPublic
             $messages['response_early'] = $api_details['response_early'];
             $messages['response_late'] = $api_details['response_late'];
             $messages['response_not_registered'] = $api_details['response_not_registered'];
-            $messages = str_replace('{caller_name}', $caller_info['name'], $messages);
+            if (array_key_exists('name', $caller_info)) {
+                $messages = str_replace('{caller_name}', $caller_info['name'], $messages);
+            }
         } else {
             $messages['response_ok'] = "Hi {$caller_info['name']}! Thank you for calling the Digital Nomad Hungary phone support, we are redirecting you to one of our Agents.";
             $messages['response_early'] = "Hi {$caller_info['name']}! We are sorry, but you are not entitled to use our Phone Support, the start date of your package is not passed. Please visit the digitalnomadhungary.com website to buy one of our packages for today.";
