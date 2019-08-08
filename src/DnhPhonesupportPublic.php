@@ -246,7 +246,6 @@ class DnhPhonesupportPublic
 
         $results = $service->events->listEvents($calendarId, $optParams);
         $events = $results->getItems();
-
         if (empty($events)) {
             return $fallback_number;
         } else {
