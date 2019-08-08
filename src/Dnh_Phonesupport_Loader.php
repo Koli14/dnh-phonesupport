@@ -150,7 +150,7 @@ class Dnh_Phonesupport_Loader
     public function run()
     {
         foreach ($this->filters as $hook) {
-            addFilter(
+            \add_filter(
                 $hook['hook'],
                 [ $hook['component'],
                 $hook['callback'] ],
@@ -160,7 +160,7 @@ class Dnh_Phonesupport_Loader
         }
 
         foreach ($this->actions as $hook) {
-            addAction(
+            \add_action(
                 $hook['hook'],
                 [ $hook['component'], $hook['callback'] ],
                 $hook['priority'],
