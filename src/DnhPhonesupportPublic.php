@@ -12,6 +12,8 @@
 
 namespace DNH;
 
+use Twilio\Twiml;
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -124,7 +126,7 @@ class DnhPhonesupportPublic
             'callcenter',
             '/incoming/',
             ['methods' =>
-                ['POST', 'GET'],
+                ['POST'],
                 'callback' => __CLASS__  . '::respondIncoming',
             ]
         );
@@ -138,7 +140,7 @@ class DnhPhonesupportPublic
 
         $caller_info = self::getCallerInfo($caller);
 
-        $api_details = get_option('phonesupport');
+        $api_details = get_option('dnh-phonesupport');
         if (is_array($api_details) and count($api_details) != 0) {
             $messages['response_ok'] = $api_details['response_ok'];
             $messages['response_early'] = $api_details['response_early'];
@@ -175,7 +177,7 @@ class DnhPhonesupportPublic
     public static function getCallerInfo($caller)
     {
         $wc_category = '30';
-        $api_details = get_option('phonesupport');
+        $api_details = get_option('dnh-phonesupport');
         if (is_array($api_details) and count($api_details) != 0) {
             $wc_category = $api_details['wc_category'];
         }
@@ -217,12 +219,14 @@ class DnhPhonesupportPublic
     public static function getSupporter()
     {
         $fallback_number = '+36304768347';
-        $api_details = get_option('phonesupport');
+        $api_details = get_option('dnh-phonesupport');
         if (is_array($api_details) and count($api_details) != 0) {
             $fallback_number = $api_details['fallback_number'];
         }
         $client = new Google_Client();
-        putenv('GOOGLE_APPLICATION_CREDENTIALS='.plugin_dir_path(__FILE__).'../api/DH_Phone_Support-7f197c8c78b6.json');
+        putenv(
+            'GOOGLE_APPLICATION_CREDENTIALS='.plugin_dir_path(__FILE__) . 'DH_Phone_Support-7f197c8c78b6.json'
+        );
         $client->useApplicationDefaultCredentials();
         $client->setApplicationName("DNH_Phone_support");
         $client->setScopes(Google_Service_Calendar::CALENDAR_READONLY);
@@ -232,11 +236,11 @@ class DnhPhonesupportPublic
         //var_dump($service->calendarList);
         $calendarId = 'digitalnomadhungary.com_g24ojjbpltr888k30f9b198mno@group.calendar.google.com';
         $optParams = [
-        'maxResults' => 250,
-        //  'orderBy' => 'startTime',
-        'timeMax' => date('c', strtotime("+1 minutes")),
-        'timeMin' => date('c'),
-      ];
+            'maxResults' => 250,
+            //  'orderBy' => 'startTime',
+            'timeMax' => date('c', strtotime("+1 minutes")),
+            'timeMin' => date('c'),
+        ];
 
         $results = $service->events->listEvents($calendarId, $optParams);
         $events = $results->getItems();

@@ -128,7 +128,7 @@ class DnhPhonesupportAdmin
             'manage_options',
             $this->_pluginName,
             [$this, 'displayPhonesupportSettingsPage']
-    );
+        );
     }
 
     /**
@@ -139,7 +139,7 @@ class DnhPhonesupportAdmin
 
     public function displayPhonesupportSettingsPage()
     {
-        include_once('partials/phonesupport-admin-display.php');
+        include_once 'partials/phonesupport-admin-display.php';
     }
 
     /**
@@ -148,7 +148,7 @@ class DnhPhonesupportAdmin
      */
     public function phonesupportAdminSettingsSave()
     {
-        register_setting($this->_pluginName, $this->_pluginName, [$this, 'plugin_options_validate']);
+        register_setting($this->_pluginName, $this->_pluginName, [$this, 'pluginOptionsValidate']);
 
         add_settings_section('phonesupport_main', 'Main Settings', [$this, 'phonesupportSectionText'], 'phonesupport-settings-page');
         add_settings_field('fallback_number', 'Fallback Phone Number', [$this, 'phonesupportSettingFallbackNumber'], 'phonesupport-settings-page', 'phonesupport_main');
@@ -246,7 +246,7 @@ class DnhPhonesupportAdmin
      * Sanitises all input fields.
      *
      */
-    public function plugin_options_validate($input)
+    public function pluginOptionsValidate($input)
     {
         $newinput['fallback_number'] = trim($input['fallback_number']);
         $newinput['response_ok'] = trim($input['response_ok']);
