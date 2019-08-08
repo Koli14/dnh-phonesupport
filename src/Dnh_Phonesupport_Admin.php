@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -11,6 +9,8 @@ namespace DNH;
  * @package    Dnh_Phonesupport
  * @subpackage Dnh_Phonesupport/admin
  */
+
+namespace DNH;
 
 /**
  * The admin-specific functionality of the plugin.
@@ -30,30 +30,30 @@ class Dnh_Phonesupport_Admin
      *
      * @since    1.0.0
      * @access   private
-     * @var      string    $plugin_name    The ID of this plugin.
+     * @var      string    $_plugin_name    The ID of this plugin.
      */
-    private $plugin_name;
+    private $_plugin_name;
 
     /**
      * The version of this plugin.
      *
      * @since    1.0.0
      * @access   private
-     * @var      string    $version    The current version of this plugin.
+     * @var      string    $_version    The current version of this plugin.
      */
-    private $version;
+    private $_version;
 
     /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of this plugin.
-     * @param      string    $version    The version of this plugin.
+     * @param      string    $_plugin_name       The name of this plugin.
+     * @param      string    $_version    The version of this plugin.
      */
-    public function __construct($plugin_name, $version)
+    public function __construct($_plugin_name, $_version)
     {
-        $this->plugin_name = $plugin_name;
-        $this->version = $version;
+        $this->plugin_name = $_plugin_name;
+        $this->version = $_version;
     }
 
     /**
@@ -61,7 +61,7 @@ class Dnh_Phonesupport_Admin
      *
      * @since    1.0.0
      */
-    public function enqueue_styles()
+    public function enqueueStyles()
     {
 
         /**
@@ -76,7 +76,13 @@ class Dnh_Phonesupport_Admin
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-admin.css', [], $this->version, 'all');
+        wp_enqueue_style(
+            $this->plugin_name,
+            plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-admin.css',
+            [],
+            $this->version,
+            'all'
+        );
     }
 
     /**
@@ -84,7 +90,7 @@ class Dnh_Phonesupport_Admin
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts()
+    public function enqueueScripts()
     {
 
         /**
@@ -99,6 +105,12 @@ class Dnh_Phonesupport_Admin
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-admin.js', [ 'jquery' ], $this->version, false);
+        wp_enqueue_script(
+            $this->plugin_name,
+            plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-admin.js',
+            [ 'jquery' ],
+            $this->version,
+            false
+        );
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * Fired during plugin activation
  *
@@ -11,6 +9,8 @@ namespace DNH;
  * @package    Dnh_Phonesupport
  * @subpackage Dnh_Phonesupport/includes
  */
+
+namespace DNH;
 
 /**
  * Fired during plugin activation.
@@ -36,8 +36,5 @@ class Dnh_Phonesupport_Activator
      */
     public static function activate()
     {
-        $pluginlog = plugin_dir_path(__FILE__).'debug.log';
-        $message = 'ACTIVATED'.PHP_EOL;
-        error_log($message, 3, $pluginlog);
     }
 }

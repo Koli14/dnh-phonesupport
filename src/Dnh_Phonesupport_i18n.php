@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * Define the internationalization functionality
  *
@@ -15,6 +13,8 @@ namespace DNH;
  * @subpackage Dnh_Phonesupport/includes
  */
 
+namespace DNH;
+
 /**
  * Define the internationalization functionality.
  *
@@ -26,7 +26,7 @@ namespace DNH;
  * @subpackage Dnh_Phonesupport/includes
  * @author     Kolos Karácsony <karacsony.kolos@gmail.com>
  */
-class Dnh_Phonesupport_i18n
+class Dnh_Phonesupport_I18n
 {
 
 
@@ -35,7 +35,7 @@ class Dnh_Phonesupport_i18n
      *
      * @since    1.0.0
      */
-    public function load_plugin_textdomain()
+    public function loadPluginTextdomain()
     {
         load_plugin_textdomain(
             'dnh-phonesupport',

@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * The file that defines the core plugin class
  *
@@ -14,6 +12,8 @@ namespace DNH;
  * @package    Dnh_Phonesupport
  * @subpackage Dnh_Phonesupport/includes
  */
+
+namespace DNH;
 
 /**
  * The core plugin class.
@@ -29,6 +29,8 @@ namespace DNH;
  * @subpackage Dnh_Phonesupport/includes
  * @author     Kolos Karácsony <karacsony.kolos@gmail.com>
  */
+
+
 class Dnh_Phonesupport
 {
 
@@ -74,14 +76,14 @@ class Dnh_Phonesupport
         if (defined('DNH_PHONESUPPORT_VERSION')) {
             $this->version = DNH_PHONESUPPORT_VERSION;
         } else {
-            $this->version = '1.0.0';
+            $this->version = '1.0.2';
         }
         $this->plugin_name = 'dnh-phonesupport';
 
-        $this->load_dependencies();
-        $this->set_locale();
-        $this->define_admin_hooks();
-        $this->define_public_hooks();
+        $this->_loadDependencies();
+        $this->_setLocale();
+        $this->_defineAdminHooks();
+        $this->_definePublicHooks();
     }
 
     /**
@@ -100,7 +102,7 @@ class Dnh_Phonesupport
      * @since    1.0.0
      * @access   private
      */
-    private function load_dependencies()
+    private function _loadDependencies()
     {
         $this->loader = new Dnh_Phonesupport_Loader();
     }
@@ -114,11 +116,15 @@ class Dnh_Phonesupport
      * @since    1.0.0
      * @access   private
      */
-    private function set_locale()
+    private function _setLocale()
     {
-        $plugin_i18n = new Dnh_Phonesupport_i18n();
+        $plugin_i18n = new Dnh_Phonesupport_I18n();
 
-        $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+        $this->loader->addAction(
+            'plugins_loaded',
+            $plugin_i18n,
+            'loadPluginTextdomain'
+        );
     }
 
     /**
@@ -128,12 +134,23 @@ class Dnh_Phonesupport
      * @since    1.0.0
      * @access   private
      */
-    private function define_admin_hooks()
+    private function _defineAdminHooks()
     {
-        $plugin_admin = new Dnh_Phonesupport_Admin($this->get_plugin_name(), $this->get_version());
+        $plugin_admin = new Dnh_Phonesupport_Admin(
+            $this->getPluginName(),
+            $this->getVersion()
+        );
 
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
+        $this->loader->addAction(
+            'admin_enqueueScripts',
+            $plugin_admin,
+            'enqueueStyles'
+        );
+        $this->loader->addAction(
+            'admin_enqueueScripts',
+            $plugin_admin,
+            'enqueueScripts'
+        );
     }
 
     /**
@@ -143,12 +160,23 @@ class Dnh_Phonesupport
      * @since    1.0.0
      * @access   private
      */
-    private function define_public_hooks()
+    private function _definePublicHooks()
     {
-        $plugin_public = new Dnh_Phonesupport_Public($this->get_plugin_name(), $this->get_version());
+        $plugin_public = new Dnh_Phonesupport_Public(
+            $this->getPluginName(),
+            $this->getVersion()
+        );
 
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+        $this->loader->addAction(
+            'wp_enqueueScripts',
+            $plugin_public,
+            'enqueueStyles'
+        );
+        $this->loader->addAction(
+            'wp_enqueueScripts',
+            $plugin_public,
+            'enqueueScripts'
+        );
     }
 
     /**
@@ -168,7 +196,7 @@ class Dnh_Phonesupport
      * @since     1.0.0
      * @return    string    The name of the plugin.
      */
-    public function get_plugin_name()
+    public function getPluginName()
     {
         return $this->plugin_name;
     }
@@ -179,7 +207,7 @@ class Dnh_Phonesupport
      * @since     1.0.0
      * @return    Dnh_Phonesupport_Loader    Orchestrates the hooks of the plugin.
      */
-    public function get_loader()
+    public function getLoader()
     {
         return $this->loader;
     }
@@ -190,7 +218,7 @@ class Dnh_Phonesupport
      * @since     1.0.0
      * @return    string    The version number of the plugin.
      */
-    public function get_version()
+    public function getVersion()
     {
         return $this->version;
     }

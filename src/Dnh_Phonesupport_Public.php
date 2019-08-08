@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * The public-facing functionality of the plugin.
  *
@@ -11,6 +9,8 @@ namespace DNH;
  * @package    Dnh_Phonesupport
  * @subpackage Dnh_Phonesupport/public
  */
+
+namespace DNH;
 
 /**
  * The public-facing functionality of the plugin.
@@ -61,7 +61,7 @@ class Dnh_Phonesupport_Public
      *
      * @since    1.0.0
      */
-    public function enqueue_styles()
+    public function enqueueStyles()
     {
 
         /**
@@ -76,7 +76,13 @@ class Dnh_Phonesupport_Public
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-public.css', [], $this->version, 'all');
+        wp_enqueue_style(
+            $this->plugin_name,
+            plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-public.css',
+            [],
+            $this->version,
+            'all'
+        );
     }
 
     /**
@@ -84,7 +90,7 @@ class Dnh_Phonesupport_Public
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts()
+    public function enqueueScripts()
     {
 
         /**
@@ -99,6 +105,12 @@ class Dnh_Phonesupport_Public
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-public.js', [ 'jquery' ], $this->version, false);
+        wp_enqueue_script(
+            $this->plugin_name,
+            plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-public.js',
+            [ 'jquery' ],
+            $this->version,
+            false
+        );
     }
 }

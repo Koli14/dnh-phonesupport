@@ -1,7 +1,5 @@
 <?php
 
-namespace DNH;
-
 /**
  * Fired during plugin deactivation
  *
@@ -11,6 +9,8 @@ namespace DNH;
  * @package    Dnh_Phonesupport
  * @subpackage Dnh_Phonesupport/includes
  */
+
+namespace DNH;
 
 /**
  * Fired during plugin deactivation.
