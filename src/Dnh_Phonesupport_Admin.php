@@ -1,26 +1,28 @@
 <?php
 
+namespace DNH;
+
 /**
- * The public-facing functionality of the plugin.
+ * The admin-specific functionality of the plugin.
  *
  * @link       https://digitalnomadhungary.com
  * @since      1.0.0
  *
  * @package    Dnh_Phonesupport
- * @subpackage Dnh_Phonesupport/public
+ * @subpackage Dnh_Phonesupport/admin
  */
 
 /**
- * The public-facing functionality of the plugin.
+ * The admin-specific functionality of the plugin.
  *
  * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
+ * enqueue the admin-specific stylesheet and JavaScript.
  *
  * @package    Dnh_Phonesupport
- * @subpackage Dnh_Phonesupport/public
+ * @subpackage Dnh_Phonesupport/admin
  * @author     Kolos Karácsony <karacsony.kolos@gmail.com>
  */
-class Dnh_Phonesupport_Public
+class Dnh_Phonesupport_Admin
 {
 
     /**
@@ -45,7 +47,7 @@ class Dnh_Phonesupport_Public
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of the plugin.
+     * @param      string    $plugin_name       The name of this plugin.
      * @param      string    $version    The version of this plugin.
      */
     public function __construct($plugin_name, $version)
@@ -55,7 +57,7 @@ class Dnh_Phonesupport_Public
     }
 
     /**
-     * Register the stylesheets for the public-facing side of the site.
+     * Register the stylesheets for the admin area.
      *
      * @since    1.0.0
      */
@@ -74,11 +76,11 @@ class Dnh_Phonesupport_Public
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-public.css', [], $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-admin.css', [], $this->version, 'all');
     }
 
     /**
-     * Register the JavaScript for the public-facing side of the site.
+     * Register the JavaScript for the admin area.
      *
      * @since    1.0.0
      */
@@ -97,6 +99,6 @@ class Dnh_Phonesupport_Public
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-public.js', [ 'jquery' ], $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-admin.js', [ 'jquery' ], $this->version, false);
     }
 }

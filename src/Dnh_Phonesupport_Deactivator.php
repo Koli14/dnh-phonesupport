@@ -1,5 +1,7 @@
 <?php
 
+namespace DNH;
+
 /**
  * Fired during plugin deactivation
  *
@@ -20,17 +22,17 @@
  * @subpackage Dnh_Phonesupport/includes
  * @author     Kolos Karácsony <karacsony.kolos@gmail.com>
  */
-class Dnh_Phonesupport_Deactivator {
+class Dnh_Phonesupport_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-
-	}
-
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate()
+    {
+    }
 }
