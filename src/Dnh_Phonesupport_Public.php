@@ -30,30 +30,30 @@ class Dnh_Phonesupport_Public
      *
      * @since    1.0.0
      * @access   private
-     * @var      string    $plugin_name    The ID of this plugin.
+     * @var      string    $_plugin_name    The ID of this plugin.
      */
-    private $plugin_name;
+    private $_plugin_name;
 
     /**
      * The version of this plugin.
      *
      * @since    1.0.0
      * @access   private
-     * @var      string    $version    The current version of this plugin.
+     * @var      string    $_version    The current version of this plugin.
      */
-    private $version;
+    private $_version;
 
     /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of the plugin.
-     * @param      string    $version    The version of this plugin.
+     * @param      string    $_plugin_name       The name of the plugin.
+     * @param      string    $_version    The version of this plugin.
      */
-    public function __construct($plugin_name, $version)
+    public function __construct($_plugin_name, $_version)
     {
-        $this->plugin_name = $plugin_name;
-        $this->version = $version;
+        $this->_plugin_name = $_plugin_name;
+        $this->_version = $_version;
     }
 
     /**
@@ -77,10 +77,10 @@ class Dnh_Phonesupport_Public
          */
 
         wp_enqueue_style(
-            $this->plugin_name,
+            $this->_plugin_name,
             plugin_dir_url(__FILE__) . '../../assets/css/dnh-phonesupport-public.css',
             [],
-            $this->version,
+            $this->_version,
             'all'
         );
     }
@@ -106,10 +106,10 @@ class Dnh_Phonesupport_Public
          */
 
         wp_enqueue_script(
-            $this->plugin_name,
+            $this->_plugin_name,
             plugin_dir_url(__FILE__) . '../../assets/js/dnh-phonesupport-public.js',
             [ 'jquery' ],
-            $this->version,
+            $this->_version,
             false
         );
     }
